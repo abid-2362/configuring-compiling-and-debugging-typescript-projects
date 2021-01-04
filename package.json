@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc --p server/tsconfig.json",
+    "dev": "tsc --p server/tsconfig.json --watch",
     "test": "tsc -v"
   },
   "keywords": [],
