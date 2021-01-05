@@ -18,7 +18,10 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["__test__/**", "jest/customTestSequencer.js"]
+        "devDependencies": [
+          "__test__/**",
+          "jest/customTestSequencer.js"
+        ]
       }
     ]
   },

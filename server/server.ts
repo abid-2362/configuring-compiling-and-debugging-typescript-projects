@@ -1,5 +1,4 @@
 import * as express from 'express';
-import * as _ from 'lodash';
 import * as path from 'path';
 import { Question } from '../@types/Question';
 
@@ -8,6 +7,14 @@ const questions: Question[] = [
     title: 'How to Login?',
     content: 'How do I login?',
     answerCount: 2,
+  },
+  {
+    title: 'How to learn?',
+    content: 'Which is the best platform for learning Digital skills?',
+  },
+  {
+    title: 'Typescript',
+    content: 'How does TypeCcript helps?',
   },
 ];
 
@@ -21,6 +28,19 @@ app.get('/questions', (req, res) => res.json(questions));
 
 app.get('/main.js', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'client', 'client.js'));
+});
+
+app.get('/new', (req, res) => {
+  const question: Question = {
+    title: (req.query.title as string) || '',
+    content: (req.query.content as string) || '',
+  };
+  questions.push(question);
+
+  res.json({
+    questions,
+    stauts: 'OK',
+  });
 });
 
 app.listen(port, () => {
